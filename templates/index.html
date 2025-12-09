@@ -1,0 +1,117 @@
+{% extends 'layout.html' %}
+
+    {% block body %}
+
+            <div class="container">
+                <h1 class="text-center p-2 mt-5 mb-5">Let's merge some PDF files!</h1>
+                <div class="w-100 bg-light text-center p-1 mb-5">
+                    <br>
+                    For general questions, please, check our <a href="/faq">FAQ</a>
+                </div>
+
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="card text-center">
+                            <h2 id="upload" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
+                                Upload Files
+                            </h2>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">Select the pdf files you would like to merge.</p>
+                                <p>After mergin the files, you can delete uploaded files using the delete button, or they will be deleted after some time.</p>
+                                <input class="btn btn-light" type="file" name="files" multiple accept=".pdf">
+                                <p></p>
+                                <p class="card-text">Before merging the single file, you'll need to upload the files.</p>
+                                <input id="upload" class="btn btn-primary" type="submit" name="upload" value="Upload Files">
+                                {% if response %}
+                                    <p class="alert alert-primary p-2 mt-2" role="alert">{{ mypdf.get_count_list_files() }} file(s) were uploaded successfully!</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <br> <br>
+                        <div class="card text-center">
+                            <h2 id="upload" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
+                                File List
+                            </h2>
+                            <div class="card-body">
+                                <h5 class="card-text"></h5>
+                                {% if True %}
+                                    <p class="alert alert-primary p-2 mt-2" role="alert">{{ mypdf.get_count_list_files() }} file(s)!</p>
+                                {% endif %}
+                                
+                                {% if mypdf.get_list_files() %}
+                                    <ul>
+                                    {% for b in mypdf.get_list_files() %}
+                                    <li>{{ b }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                {% endif %}
+                                
+                            </div>
+                        </div>
+                        <br> <br>
+                        <div class="card text-center">
+                            <h2 id="process" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
+                                Merge Time
+                            </h2>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">Will merge all the files above in a single file.</p>
+                                {% if mypdf.get_list_files() %}
+                                    <input class="btn btn-primary" type="submit" name="merge" value="Merge Files">
+                                {% else %}
+                                    <input class="btn btn-primary" disabled type="submit" name="merge" value="Merge Files">
+                                {% endif %}
+                                <div id="liveAlertPlaceholder"></div>
+                            </div>
+                        </div>
+                        <br> <br>
+                        <div class="card text-center">
+                            <h2 id="download" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
+                                Download Merged File
+                            </h2>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                {% if mypdf.is_output_file() %}
+                                    <input type="submit" class="btn btn-primary" name="download" value="Download">
+                                {% else %}
+                                    <input type="submit" disabled class="btn btn-primary" name="download" value="Download">
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <br> <br>
+                        <div class="card text-center">
+                            <h2 id="delete" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
+                                Delete Files
+                            </h2>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">If you uploaded any photos and/or videos incorrectly, you can delete them all here and upload them again.</p>
+                                <p>This action will also delete the video processed by the application.</p>
+                                {% if mypdf.get_list_files() %}
+                                    <input class="btn btn-danger" type="submit" name="delete" value="Delete Files">
+                                {% else %}
+                                    <input class="btn btn-danger" disabled type="submit" name="delete" value="Delete Files">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+
+                <br> <br>
+                <div class="card text-center">
+                    <h4 id="contact" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
+                        Contact
+                    </h4>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">If you have any questions or suggestions, please contact us.</p>
+                        <button type="button" class="btn btn-link"><a href="mailto: marcellestp@gmail.com">Contact us</a></button>
+                    </div>
+                </div>
+            </div>
+        <div class="card-body">
+            <a class="navbar-brand" href="/">
+            </a>
+        </div>
+
+    {% endblock %}
