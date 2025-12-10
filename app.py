@@ -6,6 +6,7 @@ mypdf_obj = general.General()
 
 app = Flask(__name__)
 
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -51,3 +52,8 @@ def index():
     else:
         response = request.args.get('response')
         return render_template('index.html', response=response, mypdf=mypdf)
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
