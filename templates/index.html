@@ -51,48 +51,31 @@
                         <br> <br>
                         <div class="card text-center">
                             <h2 id="process" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
-                                Merge Time
+                                Follow the Flow!
                             </h2>
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
-                                <p class="card-text">Will merge all the files above in a single file.</p>
+                                
                                 {% if mypdf.get_list_files() %}
                                     <input class="btn btn-primary" type="submit" name="merge" value="Merge Files">
                                 {% else %}
                                     <input class="btn btn-primary" disabled type="submit" name="merge" value="Merge Files">
                                 {% endif %}
                                 <div id="liveAlertPlaceholder"></div>
-                            </div>
-                        </div>
-                        <br> <br>
-                        <div class="card text-center">
-                            <h2 id="download" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
-                                Download Merged File
-                            </h2>
-                            <div class="card-body">
-                                <h5 class="card-title"></h5>
+                                <br>
                                 {% if mypdf.is_output_file() %}
                                     <input type="submit" class="btn btn-primary" name="download" value="Download">
                                 {% else %}
                                     <input type="submit" disabled class="btn btn-primary" name="download" value="Download">
                                 {% endif %}
-                            </div>
-                        </div>
-
-                        <br> <br>
-                        <div class="card text-center">
-                            <h2 id="delete" class="card-header text-white text-decoration-none" style="background-color: #3e8fc4;">
-                                Delete Files
-                            </h2>
-                            <div class="card-body">
-                                <h5 class="card-title"></h5>
-                                <p class="card-text">If you uploaded any photos and/or videos incorrectly, you can delete them all here and upload them again.</p>
-                                <p>This action will also delete the video processed by the application.</p>
+                                <div id="liveAlertPlaceholder"></div>
+                                <br>
                                 {% if mypdf.get_list_files() %}
                                     <input class="btn btn-danger" type="submit" name="delete" value="Delete Files">
                                 {% else %}
                                     <input class="btn btn-danger" disabled type="submit" name="delete" value="Delete Files">
                                 {% endif %}
+
                             </div>
                         </div>
                     </form>
