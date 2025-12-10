@@ -97,6 +97,32 @@ Just start the application, and access it via webUI on port `5000`. After that, 
 
 Users who have questions can send messages with questions or suggestions to the contact email `marcellestp@gmail.com` and `waldirio@gmail.com`.
 
+# To Deploy via Virtual Environment
+- Create a Python Virtual Environment
+```
+python3 -m venv ~/.venv/pdf+
+```
+- Load the Virtual Environment
+```
+source ~/.venv/pdf+/bin/activate
+(pdf+) user@local ~ %
+```
+- Clone the repo
+```
+git clone https://...
+cd pdf-plus
+```
+- Install the Python Modules via Requirements.txt
+```
+pip install -r requirements.txt
+```
+- Start the Application
+```
+flask run --debug
+...
+* Running on http://127.0.0.1:5000
+```
+
 
 # Reference
 - BootStrap
