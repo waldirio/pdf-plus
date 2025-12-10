@@ -14,6 +14,16 @@ ALLOWED_EXTENSIONS = {'pdf'}
 general = general.General()
 
 class PdfPlus():
+    def __init__(self):
+        """
+        Docstring for __init__
+        
+        :param self: Description
+        
+        Creating the temporary folder, in case of absent
+        """
+        if not os.path.exists(TEMP_FOLDER):
+            os.mkdir(TEMP_FOLDER)
 
 
     def allowed_file(self, filename):
