@@ -129,6 +129,10 @@ class PdfPlus():
                 return "error_deleting_output_file"
             else:
                 return "files_deleted"
+        else:
+            # If there is no file to be removed, the response
+            # will be similar, and it will not fail.
+            return "files_deleted"
     
 
     def get_list_files(self):
