@@ -109,7 +109,7 @@ source ~/.venv/pdf+/bin/activate
 ```
 - Clone the repo
 ```
-git clone https://...
+git clone https://github.com/waldirio/pdf-plus.git
 cd pdf-plus
 ```
 - Install the Python Modules via Requirements.txt
