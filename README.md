@@ -1,5 +1,5 @@
 # PDF-plus
-#### Video Demo: [https://youtu.be/TODO](https://youtu.be/TODO)
+#### Video Demo: [https://youtu.be/KMnfHL4SYtE](https://youtu.be/KMnfHL4SYtE)
 
 # Disclaimer
 This is an independent project to help people merge different `PDF` files, and also, created as part of [CS50P](https://pll.harvard.edu/course/cs50s-introduction-programming-python) course, as the final project. The developers are not responsible if your PDF file(s) are corrupt, or not working properly.
@@ -121,6 +121,22 @@ pip install -r requirements.txt
 flask run --debug
 ...
 * Running on http://127.0.0.1:5000
+```
+
+# To Deploy the Container Using Podman
+- Install podman
+```
+dnf install podman -y
+```
+- Execute the container
+```
+podman run -d --rm --name pdf-plus -p 5000:5000 ghcr.io/waldirio/pdf-plus:latest
+```
+
+### You can also pull the image using docker
+- To pull the image
+```
+docker pull ghcr.io/waldirio/pdf-plus:latest
 ```
 
 
